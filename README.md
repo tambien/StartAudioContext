@@ -9,7 +9,7 @@ To get around this StartAudioContext triggers a silent Oscillator when a non-dra
 
 Install in any of these ways:
 
-* download the [min]() or [full]() JS file. 
+* download the [min](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.min.js) or [full](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.js) JS file. 
 * `npm install startaudiocontext`
 * `bower install startaudiocontext`
 
