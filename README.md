@@ -3,7 +3,7 @@ StartAudioContext starts the Web Audio API AudioContext on an explicit user acti
 According to the [Apple's documentation](https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html): 
 > On iOS, the Web Audio API requires sounds to be triggered from an explicit user action, such as a tap. Calling noteOn() from an onload event will not play sound.
 
-To get around this StartAudioContext triggers a silent Oscillator when a non-dragged `touchend` or `mouseup` event occurs on the given elements. After one of these explicit user actions, the AudioContext is started and ready to make some noise. 
+To start the context, StartAudioContext triggers a silent Oscillator when a non-dragged `touchend` or `mouseup` event occurs on the given elements. After one of these explicit user actions, the AudioContext is started and ready to make some sound. 
 
 ## Installation
 
