@@ -9,7 +9,7 @@ When a non-dragged `touchend` or `mouseup` event occurs on any of the given elem
 
 Choose one:
 
-* download the [min](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.min.js) or [full](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.js) JS file. 
+* download the [min](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.min.js) or [full](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.js) js file. 
 * `npm install startaudiocontext`
 * `bower install startaudiocontext`
 
@@ -58,7 +58,7 @@ You can pass in an Array combining any of the above. Make sure you're array is n
 StartAudioContext.on([el, $("button"), ".className");
 ```
 
-### `setContext({AudioContext})`
+### `.setContext({AudioContext})`
 
 Set the AudioContext. When the context is set, a valid event will trigger a silent Oscillator node and start the AudioContext. 
 
@@ -67,7 +67,7 @@ var audioContext = new AudioContext();
 StartAudioContext.setContext(audioContext);
 ```
 
-### `isStarted()`
+### `.isStarted()`
 
 Returns `true` if the given AudioContext is running. See [`AudioContext.state`](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/state).
 
@@ -75,29 +75,15 @@ Returns `true` if the given AudioContext is running. See [`AudioContext.state`](
 StartAudioContext.isStarted();
 ```
 
-### `onTap({Function})`
-
-Set your own callback when a non-dragging tap has occurred on _any_ of the passed in elements. This method is only invoked on the **first** tap; subsequent events will not invoke this callback. 
-
-
-```javascript
-StartAudioContext.onTap(function(){
-	//tapped for the very first time
-});
-```
-
 ### Chaining
 
-All of the methods (except `isStarted`) are chainable. 
+Both `on` and `setContext` are chainable. 
 
 ```javascript
 StartAudioContext
 	.setContext(ctx)
 	.on("button")
-	.on(element)
-	.onTap(function(){
-		//tap
-	});
+	.on(element);
 ```
 
 ## MIT License
