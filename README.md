@@ -75,17 +75,6 @@ Returns `true` if the given AudioContext is running. See [`AudioContext.state`](
 StartAudioContext.isStarted();
 ```
 
-### Chaining
-
-Both `on` and `setContext` are chainable. 
-
-```javascript
-StartAudioContext
-	.setContext(ctx)
-	.on("button")
-	.on(element);
-```
-
 ## MIT License
 
 Copyright 2016 Yotam Mann
