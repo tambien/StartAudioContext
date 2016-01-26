@@ -29,12 +29,6 @@
 		 * @private
 		 */
 		_tapListeners : [],
-		/**
-		 * The callbacks bound to a valid tap event
-		 * @type {Array}
-		 * @private
-		 */
-		_onTapCallbacks : [],
 	};
 
 
@@ -67,17 +61,6 @@
 			var tap = new TapListener(element, onTap);
 			StartAudioContext._tapListeners.push(tap);
 		} 
-		return StartAudioContext;
-	};
-
-	/**
-	 * Add a callback when there is a valid, context starting
-	 * tap event and the AudioContext is not already started.
-	 * @param  {Function} callback
-	 * @returns {StartAudioContext}
-	 */
-	StartAudioContext.onTap = function(callback){
-		StartAudioContext._onTapCallbacks.push(callback);
 		return StartAudioContext;
 	};
 
@@ -162,14 +145,6 @@
 				StartAudioContext._tapListeners[i].dispose();
 			}
 			StartAudioContext._tapListeners = null;
-		}
-
-		//invoke and dispose all the onTap handlers
-		if (StartAudioContext._onTapCallbacks){
-			for (var j = 0; j < StartAudioContext._onTapCallbacks.length; j++){
-				StartAudioContext._onTapCallbacks[j]();
-			}
-			StartAudioContext._onTapCallbacks = null;
 		}
 	}
 
