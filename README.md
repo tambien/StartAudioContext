@@ -1,17 +1,34 @@
-StartAudioContext starts the Web Audio API AudioContext on an explicit user action. 
+StartAudioContext starts the Web Audio API's AudioContext on an explicit user action. 
 
 According to the [Apple's documentation](https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html): 
 > On iOS, the Web Audio API requires sounds to be triggered from an explicit user action, such as a tap. Calling noteOn() from an onload event will not play sound.
 
-When a non-dragged `touchend` or `mouseup` event occurs on any of the given elements, StartAudioContext triggers a silent Oscillator which will start the AudioContext if it isn't already started.
+When a non-dragged `touchend` or `mouseup` event occurs on any of the given elements, StartAudioContext triggers a silent Oscillator which will start the AudioContext if it isn't already started. The context will be started on the first valid user action on any of the passed in Elements.
 
 ## Installation
 
 Choose one:
 
-* download the [min](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.min.js) or [full](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.js) js file. 
+* [download the js](https://raw.githubusercontent.com/tambien/StartAudioContext/master/StartAudioContext.js)
 * `npm install startaudiocontext`
 * `bower install startaudiocontext`
+
+## Basic
+
+```javascript
+//pass in the audio context
+var context = new AudioContext();
+StartAudioContext.setContext(context);
+
+//the context will be started on the first valid user action
+StartAudioContext.on("#playButton");
+
+//you can bind as many elements as you want
+var buttons = document.querySelectorAll("button");
+StartAudioContext.on(buttons);
+```
+
+When the AudioContext is running `StartAudioContext.isStarted()` will return `true`.
 
 ## API
 
