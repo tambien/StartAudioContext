@@ -55,7 +55,7 @@ StartAudioContext.on($("button"));
 You can pass in an Array combining any of the above. Make sure you're array is not self-referential, or it'll go into an infinite, recursive loop. 
 
 ```javascript
-StartAudioContext.on([el, $("button"), ".className");
+StartAudioContext.on([el, $("button"), ".className"]);
 ```
 
 ### `.setContext({AudioContext})`
