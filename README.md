@@ -92,6 +92,16 @@ Returns `true` if the given AudioContext is running. See [`AudioContext.state`](
 StartAudioContext.isStarted();
 ```
 
+### `.onStarted({Function})`
+
+Callback when the passed in AudioContext is started. If the context is already started, this callback will be invoked immediately.
+
+```javascript
+StartAudioContext.onStarted(function(){
+	//ready to go!
+});
+```
+
 ## MIT License
 
 Copyright 2016 Yotam Mann
