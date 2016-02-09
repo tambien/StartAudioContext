@@ -29,6 +29,12 @@
 		 * @private
 		 */
 		_tapListeners : [],
+		/**
+		 * Callbacks to invoke when the audio context is started
+		 * @type {Array}
+		 * @private
+		 */
+		_onStarted : [],
 	};
 
 
@@ -61,6 +67,21 @@
 			var tap = new TapListener(element, onTap);
 			StartAudioContext._tapListeners.push(tap);
 		} 
+		return StartAudioContext;
+	};
+
+	/**
+	 * Bind a callback to when the audio context is started. 
+	 * @param {Function} cb
+	 * @return {StartAudioContext}
+	 */
+	StartAudioContext.onStarted = function(cb){
+		//if it's already started, invoke the callback
+		if (StartAudioContext.isStarted()){
+			cb();
+		} else {
+			StartAudioContext._onStarted.push(cb);
+		}
 		return StartAudioContext;
 	};
 
@@ -146,8 +167,14 @@
 			}
 			StartAudioContext._tapListeners = null;
 		}
+		//the onstarted callbacks
+		if (StartAudioContext._onStarted){
+			for (var j = 0; j < StartAudioContext._onStarted.length; j++){
+				StartAudioContext._onStarted[j]();
+			}
+			StartAudioContext._onStarted = null;
+		}
 	}
-
 
 	return StartAudioContext;
 }));
