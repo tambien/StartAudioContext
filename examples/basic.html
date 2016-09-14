@@ -43,25 +43,14 @@
 	<script type="text/javascript">
 
 	//create an audio context
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	var audioContext = new AudioContext();
+	window.AudioContext = window.AudioContext || window.webkitAudioContext
+	var audioContext = new AudioContext()
 
 	//set the context
-	StartAudioContext.setContext(audioContext);
+	StartAudioContext(audioContext, ".starterButton").then(function(){
+		document.querySelector("#isStarted").textContent = "Started"
+	})
 
-	//listen for events on the matching elements
-	StartAudioContext.on(".starterButton");
-
-	//indicate when the audio context has been started
-	var startedElement = document.querySelector("#isStarted");
-	function loop(){
-		if (StartAudioContext.isStarted()){
-			startedElement.textContent = "Started";
-		} else {
-			requestAnimationFrame(loop);
-		}
-	}
-	loop();
 	</script>
 </body>
 </html>
