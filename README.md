@@ -41,6 +41,8 @@ StartAudioContext(audioContext, '#button', function(){
 })
 ```
 
+If no element is passed in, it will bind to document.body.
+
 #### Callback
 
 The third argument is the callback to invoke when the AudioContext has started.
@@ -52,6 +54,16 @@ StartAudioContext returns a promise which is resolved when the AudioContext stat
 ```javascript
 StartAudioContext(audioContext).then(function(){
 	//context is started	
+})
+```
+
+### Tone.js
+
+If you're using StartAudioContext with Tone.js or any other library which creates an AudioContext, pass in that AudioContext instead of creating a new one:
+
+```javascript
+StartAudioContext(Tone.context, '#button').then(function(){
+	//started
 })
 ```
 
