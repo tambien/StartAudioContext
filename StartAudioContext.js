@@ -30,6 +30,7 @@
 		this._bindedMove = this._moved.bind(this)
 		this._bindedEnd = this._ended.bind(this, context)
 
+		element.addEventListener("touchstart", this._bindedEnd)
 		element.addEventListener("touchmove", this._bindedMove)
 		element.addEventListener("touchend", this._bindedEnd)
 		element.addEventListener("mouseup", this._bindedEnd)
@@ -56,6 +57,7 @@
 	 * remove all the bound events
 	 */
 	TapListener.prototype.dispose = function(){
+		this._element.removeEventListener("touchstart", this._bindedEnd)
 		this._element.removeEventListener("touchmove", this._bindedMove)
 		this._element.removeEventListener("touchend", this._bindedEnd)
 		this._element.removeEventListener("mouseup", this._bindedEnd)
