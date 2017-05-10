@@ -1,6 +1,6 @@
 {
   "name": "startaudiocontext",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Start the AudioContext on an explicit user action.",
   "main": "StartAudioContext.js",
   "directories": {
